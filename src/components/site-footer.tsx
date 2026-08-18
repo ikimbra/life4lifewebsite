@@ -66,12 +66,12 @@ export function SiteFooter() {
             <h2 className="font-display text-base font-semibold text-white">
               Programmes
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-3 space-y-0.5 text-sm">
               {projects.slice(0, 7).map((p) => (
                 <li key={p.slug}>
                   <Link
                     href={`/projects/${p.slug}`}
-                    className="transition-colors duration-200 hover:text-white"
+                    className="tap-link transition-colors duration-200 hover:text-white"
                   >
                     {p.name}
                   </Link>
@@ -80,7 +80,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/projects"
-                  className="font-medium text-orange-400 transition-colors duration-200 hover:text-orange-300"
+                  className="tap-link font-medium text-orange-400 transition-colors duration-200 hover:text-orange-300"
                 >
                   All programmes →
                 </Link>
@@ -93,7 +93,7 @@ export function SiteFooter() {
             <h2 className="font-display text-base font-semibold text-white">
               Organisation
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
+            <ul className="mt-3 space-y-0.5 text-sm">
               {[
                 ["/about", "About us"],
                 ["/about#vision-bearer", "Message from our founder"],
@@ -106,7 +106,7 @@ export function SiteFooter() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="transition-colors duration-200 hover:text-white"
+                    className="tap-link transition-colors duration-200 hover:text-white"
                   >
                     {label}
                   </Link>
@@ -120,7 +120,7 @@ export function SiteFooter() {
             <h2 className="font-display text-base font-semibold text-white">
               Contact
             </h2>
-            <address className="mt-4 space-y-2.5 text-sm not-italic">
+            <address className="mt-3 space-y-2 text-sm not-italic">
               <p>
                 {site.contact.poBox}
                 <br />
@@ -131,14 +131,14 @@ export function SiteFooter() {
               <p>
                 <a
                   href={`tel:${site.contact.office.replace(/\s/g, "")}`}
-                  className="transition-colors duration-200 hover:text-white"
+                  className="tap-link transition-colors duration-200 hover:text-white"
                 >
                   {site.contact.office}
                 </a>
                 <br />
                 <a
                   href={`tel:${site.contact.mobile.replace(/\s/g, "")}`}
-                  className="transition-colors duration-200 hover:text-white"
+                  className="tap-link transition-colors duration-200 hover:text-white"
                 >
                   {site.contact.mobile}
                 </a>
@@ -146,7 +146,7 @@ export function SiteFooter() {
               <p>
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="break-all transition-colors duration-200 hover:text-white"
+                  className="tap-link break-all transition-colors duration-200 hover:text-white"
                 >
                   {site.contact.email}
                 </a>
@@ -166,10 +166,10 @@ export function SiteFooter() {
               © {year} {site.legalName}. All rights reserved.
             </p>
             <div className="flex gap-5">
-              <Link href="/privacy" className="transition-colors duration-200 hover:text-white">
+              <Link href="/privacy" className="tap-link transition-colors duration-200 hover:text-white">
                 Privacy
               </Link>
-              <Link href="/terms" className="transition-colors duration-200 hover:text-white">
+              <Link href="/terms" className="tap-link transition-colors duration-200 hover:text-white">
                 Terms
               </Link>
             </div>

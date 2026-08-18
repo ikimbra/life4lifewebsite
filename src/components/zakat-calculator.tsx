@@ -113,7 +113,7 @@ export function ZakatCalculator() {
                 type="button"
                 onClick={() => setCurrency(c)}
                 aria-pressed={currency.code === c.code}
-                className={`cursor-pointer rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200 ${
+                className={`tap cursor-pointer rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200 ${
                   currency.code === c.code
                     ? "bg-magenta-ink text-white"
                     : "border border-border-strong bg-background text-sand-700 hover:bg-surface-sunken"
@@ -132,7 +132,7 @@ export function ZakatCalculator() {
                 type="button"
                 onClick={() => setBasis(b)}
                 aria-pressed={basis === b}
-                className={`cursor-pointer rounded-md px-3.5 py-2 text-sm font-semibold capitalize transition-colors duration-200 ${
+                className={`tap cursor-pointer rounded-md px-3.5 py-2 text-sm font-semibold capitalize transition-colors duration-200 ${
                   basis === b
                     ? "bg-magenta-ink text-white"
                     : "border border-border-strong bg-background text-sand-700 hover:bg-surface-sunken"
@@ -162,7 +162,7 @@ export function ZakatCalculator() {
                 inputMode="decimal"
                 value={silverPerG}
                 onChange={(e) => setSilverPerG(e.target.value)}
-                className="tabular mt-1 w-full rounded-md border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-magenta-ink focus:ring-2 focus:ring-magenta-200"
+                className="tap tabular mt-1 w-full rounded-md border border-border-strong bg-background px-3 py-2.5 text-sm outline-none focus:border-magenta-ink focus:ring-2 focus:ring-magenta-200"
               />
             </div>
             <div>
@@ -178,7 +178,7 @@ export function ZakatCalculator() {
                 inputMode="decimal"
                 value={goldPerG}
                 onChange={(e) => setGoldPerG(e.target.value)}
-                className="tabular mt-1 w-full rounded-md border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-magenta-ink focus:ring-2 focus:ring-magenta-200"
+                className="tap tabular mt-1 w-full rounded-md border border-border-strong bg-background px-3 py-2.5 text-sm outline-none focus:border-magenta-ink focus:ring-2 focus:ring-magenta-200"
               />
             </div>
           </div>

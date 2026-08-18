@@ -504,6 +504,23 @@ export const projects: Project[] = [
   },
 ];
 
+/**
+ * Formats a USD donation amount for display.
+ *
+ * Thousands separators matter here: "$2000" reads as a typo next to the
+ * "$2,000" used in prose, and inconsistent money formatting on a donation
+ * page undermines exactly the credibility the page is trying to build.
+ */
+export const formatAmount = (amount: number) => `$${amount.toLocaleString("en-GB")}`;
+
+/** Lowest concrete price in a project, or null if every option is "Enquire". */
+export const lowestAmount = (p: Project): number | null => {
+  const amounts = p.donations
+    .map((d) => d.amount)
+    .filter((a): a is number => typeof a === "number");
+  return amounts.length ? Math.min(...amounts) : null;
+};
+
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 
 export const activeProjects = projects.filter((p) => p.status === "active");

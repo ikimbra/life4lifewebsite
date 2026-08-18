@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects, type Project } from "@/content/projects";
+import { MobileDonateBar } from "@/components/mobile-donate-bar";
+import { formatAmount, getProject, projects, type Project } from "@/content/projects";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -75,7 +76,7 @@ export default async function ProjectPage({
   const gallery = project.images.slice(1);
 
   return (
-    <main id="main">
+    <main id="main" className="pb-24 lg:pb-0">
       {/* Hero */}
       <section className="relative isolate">
         <div className="absolute inset-0 -z-10">
@@ -93,7 +94,7 @@ export default async function ProjectPage({
         <div className="container-page py-20 lg:py-24">
           <Link
             href="/projects"
-            className="text-sm font-medium text-sand-300 transition-colors duration-200 hover:text-white"
+            className="tap inline-flex items-center py-2 text-sm font-medium text-sand-300 transition-colors duration-200 hover:text-white"
           >
             ← All programmes
           </Link>
@@ -229,7 +230,7 @@ export default async function ProjectPage({
                           d.amount === null ? "text-muted" : a.text
                         }`}
                       >
-                        {d.amount === null ? "Enquire" : `$${d.amount}`}
+                        {d.amount === null ? "Enquire" : formatAmount(d.amount)}
                       </span>
                     </li>
                   ))}
@@ -264,6 +265,8 @@ export default async function ProjectPage({
           </div>
         </section>
       </div>
+
+      <MobileDonateBar project={project} />
     </main>
   );
 }

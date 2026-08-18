@@ -47,7 +47,7 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={`tel:${site.contact.office.replace(/\s/g, "")}`}
-                      className="tabular font-semibold text-orange-ink"
+                      className="tap-link tabular font-semibold text-orange-ink"
                     >
                       {site.contact.office}
                     </a>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={`tel:${site.contact.mobile.replace(/\s/g, "")}`}
-                      className="tabular font-semibold text-orange-ink"
+                      className="tap-link tabular font-semibold text-orange-ink"
                     >
                       {site.contact.mobile}
                     </a>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={`mailto:${site.contact.email}`}
-                      className="break-all font-semibold text-orange-ink"
+                      className="tap-link break-all font-semibold text-orange-ink"
                     >
                       {site.contact.email}
                     </a>

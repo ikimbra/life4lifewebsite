@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/content/projects";
+import { formatAmount, lowestAmount, type Project } from "@/content/projects";
 
 /* Accent is resolved through a lookup rather than string interpolation —
    Tailwind cannot see dynamically built class names at build time. */
@@ -17,13 +17,6 @@ const accentText: Record<Project["accent"], string> = {
   blue: "text-blue-ink",
   magenta: "text-magenta-ink",
 };
-
-function lowestAmount(p: Project) {
-  const amounts = p.donations
-    .map((d) => d.amount)
-    .filter((a): a is number => typeof a === "number");
-  return amounts.length ? Math.min(...amounts) : null;
-}
 
 export function ProjectCard({ project, priority = false }: { project: Project; priority?: boolean }) {
   const from = lowestAmount(project);
@@ -63,7 +56,7 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
         >
           {from !== null ? (
             <>
-              From <span className="tabular">${from}</span>
+              From <span className="tabular">{formatAmount(from)}</span>
             </>
           ) : (
             "Learn more"

@@ -110,7 +110,7 @@ export default function Home() {
             </div>
             <Link
               href="/about"
-              className="mt-7 inline-flex items-center gap-1.5 font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
+              className="tap mt-6 inline-flex items-center gap-1.5 py-2 font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
             >
               Read our story
               <span aria-hidden="true">→</span>
@@ -192,7 +192,7 @@ export default function Home() {
 
           <Link
             href="/projects/clean-water"
-            className="mt-9 inline-flex items-center gap-1.5 font-semibold text-blue-300 transition-colors duration-200 hover:text-blue-200"
+            className="tap mt-8 inline-flex items-center gap-1.5 py-2 font-semibold text-blue-300 transition-colors duration-200 hover:text-blue-200"
           >
             Follow a well from first dig to first drink
             <span aria-hidden="true">→</span>
@@ -213,7 +213,7 @@ export default function Home() {
           </div>
           <Link
             href="/projects"
-            className="font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
+            className="tap inline-flex items-center py-2 font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
           >
             All {projects.length} programmes <span aria-hidden="true">→</span>
           </Link>
@@ -246,7 +246,7 @@ export default function Home() {
           </figure>
           <Link
             href="/about#vision-bearer"
-            className="mt-8 inline-flex items-center gap-1.5 font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
+            className="tap mt-7 inline-flex items-center gap-1.5 py-2 font-semibold text-orange-ink transition-colors duration-200 hover:text-orange-800"
           >
             Read the full message
             <span aria-hidden="true">→</span>

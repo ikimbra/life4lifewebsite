@@ -80,7 +80,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${newsreader.variable} ${inter.variable} ${amiri.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      {/* suppressHydrationWarning applies to this element's own attributes
+          only, one level deep — it does not mask mismatches in our tree.
+          Needed because extensions (Grammarly, password managers, dark-mode
+          add-ons) inject attributes onto <body> before React hydrates, which
+          React otherwise reports as a mismatch we cannot fix from here. */}
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-background text-foreground"
+      >
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-on-primary"

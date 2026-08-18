@@ -65,7 +65,7 @@ export function GalleryGrid({
           type="button"
           onClick={() => setFilter("all")}
           aria-pressed={filter === "all"}
-          className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+          className={`tap cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
             filter === "all"
               ? "bg-orange-ink text-white"
               : "border border-border-strong bg-background text-sand-700 hover:bg-surface-sunken"
@@ -79,7 +79,7 @@ export function GalleryGrid({
             type="button"
             onClick={() => setFilter(c.key)}
             aria-pressed={filter === c.key}
-            className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+            className={`tap cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
               filter === c.key
                 ? "bg-orange-ink text-white"
                 : "border border-border-strong bg-background text-sand-700 hover:bg-surface-sunken"
