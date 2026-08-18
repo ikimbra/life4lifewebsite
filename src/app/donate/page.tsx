@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { donationPolicy, site } from "@/content/site";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Donate",
   description:
     "Give to Life 4 Life Relief Aid by bank transfer, mobile money or international money transfer. 100% of your donation reaches the programme you chose.",
+  alternates: { canonical: "/donate" },
 };
 
 /* Online card and mobile money giving activates the moment Flutterwave
@@ -16,19 +18,12 @@ const flutterwaveLive = Boolean(process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY);
 export default function DonatePage() {
   return (
     <main id="main">
-      <section className="border-b border-border bg-surface">
-        <div className="container-page py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-ink">
-            {donationPolicy.headline}
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold text-foreground sm:text-5xl">
-            Every penny reaches Kasese.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-sand-700">
-            {donationPolicy.body}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={donationPolicy.headline}
+        title="Every penny reaches Kasese."
+        lead={donationPolicy.body}
+        image="food-packs/handover-elderly"
+      />
 
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:gap-16">
@@ -51,7 +46,7 @@ export default function DonatePage() {
                   <p className="mt-2 leading-relaxed text-sand-700">
                     We are completing verification with our payment provider. In
                     the meantime you can give by bank transfer, mobile money or
-                    international transfer — every method below reaches us in
+                    international transfer. Every method below reaches us in
                     full.
                   </p>
                 </div>

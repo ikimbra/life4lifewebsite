@@ -11,7 +11,7 @@ const GOLD_NISAB_G = 87.48;
 const SILVER_NISAB_G = 612.36;
 const ZAKAT_RATE = 0.025;
 
-/* Indicative starting values only — clearly surfaced in the UI as editable,
+/* Indicative starting values only clearly surfaced in the UI as editable,
    because a wrong metal price produces a wrong Zakat figure. */
 const DEFAULT_GOLD_PER_G = 85;
 const DEFAULT_SILVER_PER_G = 1.05;
@@ -183,7 +183,7 @@ export function ZakatCalculator() {
             </div>
           </div>
           <p className="mt-2 text-xs text-muted">
-            Please check today&rsquo;s metal price — these starting figures are
+            Please check today&rsquo;s metal price. These starting figures are
             indicative and will drift out of date.
           </p>
         </fieldset>
@@ -215,7 +215,7 @@ export function ZakatCalculator() {
               {eligible
                 ? "2.5% of your zakatable wealth"
                 : net > 0
-                  ? "Your wealth is below the nisab threshold — no Zakat is due this year."
+                  ? "Your wealth is below the nisab threshold, so no Zakat is due this year."
                   : "Enter your assets to calculate."}
             </p>
           </div>
@@ -250,8 +250,8 @@ export function ZakatCalculator() {
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
           This calculator is a guide, not a religious ruling. If your situation
-          is complex — business assets, pensions, agricultural produce or
-          livestock — please consult a qualified scholar.
+          is complex business assets, pensions, agricultural produce or
+          livestock please consult a qualified scholar.
         </p>
       </aside>
     </div>

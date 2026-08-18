@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Life 4 Life Relief Aid — Design Tokens
+   Life 4 Life Relief Aid, Design Tokens
    --------------------------------------------------------------------------
    Brand source: logo (life4life logo.png). Sampled hues:
      orange #F39122 · green #7AC043 · blue #409DC6 · magenta #EC1465
@@ -11,8 +11,8 @@
    interactive surface resolves to a solved, hue-true variant that passes
    WCAG AA (see --color-*-ink below, all >= 4.55:1 against white).
 
-   Colour weighting follows the logo's own proportions — orange dominates,
-   magenta is the rarest — so the palette reads as the brand rather than as
+   Colour weighting follows the logo's own proportions, orange dominates,
+   magenta is the rarest, so the palette reads as the brand rather than as
    four colours competing.
 
    The site is deliberately LIGHT-ONLY. It is photography-led and serves a
@@ -27,21 +27,21 @@
   --color-orange-200: #f1dbc3;
   --color-orange-300: #edc496;
   --color-orange-400: #eead63;
-  --color-orange-500: #f39122; /* logo orange — fills only */
+  --color-orange-500: #f39122; /* logo orange, fills only */
   --color-orange-600: #db7e15;
   --color-orange-700: #ac6719;
   --color-orange-800: #805019;
   --color-orange-900: #5c3c17;
   --color-orange-950: #3b2812;
-  --color-orange-ink: #b46000; /* 4.55:1 on white — text + solid CTA */
+  --color-orange-ink: #b46000; /* 4.55:1 on white, text + solid CTA */
 
-  /* --- Brand: green (secondary — growth, livelihoods, environment) ------- */
+  /* --- Brand: green (secondary, growth, livelihoods, environment) ------- */
   --color-green-50: #f7faf5;
   --color-green-100: #ecf3e8;
   --color-green-200: #d8e7cd;
   --color-green-300: #bfdaaa;
   --color-green-400: #a4cf82;
-  --color-green-500: #7ac043; /* logo green — fills only */
+  --color-green-500: #7ac043; /* logo green, fills only */
   --color-green-600: #71af41;
   --color-green-700: #5d8b39;
   --color-green-800: #496930;
@@ -55,7 +55,7 @@
   --color-blue-200: #ccdfe8;
   --color-blue-300: #a8ccdc;
   --color-blue-400: #7fb8d2;
-  --color-blue-500: #409dc6; /* logo blue — fills only */
+  --color-blue-500: #409dc6; /* logo blue, fills only */
   --color-blue-600: #3c8fb3;
   --color-blue-700: #36738e;
   --color-blue-800: #2d596c;
@@ -63,13 +63,13 @@
   --color-blue-950: #1a2b33;
   --color-blue-ink: #007db5; /* 4.56:1 on white */
 
-  /* --- Brand: magenta (rarest accent — use sparingly, as in the logo) ---- */
+  /* --- Brand: magenta (rarest accent, use sparingly, as in the logo) ---- */
   --color-magenta-50: #fbf4f6;
   --color-magenta-100: #f7e4eb;
   --color-magenta-200: #f0c4d5;
   --color-magenta-300: #eb99b8;
   --color-magenta-400: #ea6798;
-  --color-magenta-500: #ec1465; /* logo magenta — fills only */
+  --color-magenta-500: #ec1465; /* logo magenta, fills only */
   --color-magenta-600: #d61a60;
   --color-magenta-700: #a81c51;
   --color-magenta-800: #7d1c40;
@@ -89,7 +89,7 @@
   --color-sand-600: #6b6357;
   --color-sand-700: #524b42;
   --color-sand-800: #38332d;
-  --color-sand-900: #241f1b; /* 14.9:1 on white — body text */
+  --color-sand-900: #241f1b; /* 14.9:1 on white, body text */
   --color-sand-950: #16120f;
 
   /* --- Semantic roles ---------------------------------------------------- */
@@ -97,7 +97,7 @@
   --color-surface: var(--color-sand-50);
   --color-surface-sunken: var(--color-sand-100);
   --color-foreground: var(--color-sand-900);
-  --color-muted: var(--color-sand-600); /* 6.6:1 — safe for secondary text */
+  --color-muted: var(--color-sand-600); /* 6.6:1, safe for secondary text */
   --color-border: var(--color-sand-200);
   --color-border-strong: var(--color-sand-300);
 
@@ -110,7 +110,7 @@
   --color-danger: #b3261e; /* 5.9:1 on white */
 
   /* --- Typography ---------------------------------------------------------
-     Newsreader: warm editorial serif built for long-form reading — carries
+     Newsreader: warm editorial serif built for long-form reading, carries
        the storytelling the charity leads with without feeling corporate.
      Inter: body and UI. Chosen over a generic default for its tabular
        figures, which matter on a site full of donation amounts.
@@ -133,9 +133,14 @@
   --shadow-md: 0 4px 12px -2px rgb(36 31 27 / 0.10), 0 2px 4px -2px rgb(36 31 27 / 0.06);
   --shadow-lg: 0 12px 28px -6px rgb(36 31 27 / 0.12), 0 4px 8px -4px rgb(36 31 27 / 0.06);
 
-  /* --- Motion: 150–300ms, meaningful only ------------------------------- */
-  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  /* --- Motion -------------------------------------------------------------
+     The browser built-ins are too weak to read as deliberate. These override
+     Tailwind's defaults so `ease-out` anywhere in the codebase resolves to the
+     strong curve rather than the flat one. UI motion stays under 300ms;
+     scroll-driven reveals are marketing surface and may run longer. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 /* ==========================================================================
@@ -172,7 +177,7 @@
     text-wrap: pretty;
   }
 
-  /* Arabic script — ayat, hadith, du'a. Larger, looser: naskh needs room. */
+  /* Arabic script, ayat, hadith, du'a. Larger, looser: naskh needs room. */
   :lang(ar),
   .font-arabic {
     font-family: var(--font-arabic);
@@ -181,7 +186,7 @@
     font-size: 1.2em;
   }
 
-  /* A visible, high-contrast focus ring. Never removed — keyboard donors
+  /* A visible, high-contrast focus ring. Never removed, keyboard donors
      are still donors, and removing it fails WCAG 2.4.7 outright. */
   :focus-visible {
     outline: 3px solid var(--color-ring);
@@ -228,13 +233,13 @@
 }
 
 /* Tabular figures for donation amounts, impact counters and the Zakat
-   calculator — stops numbers jittering as values change. */
+   calculator, stops numbers jittering as values change. */
 @utility tabular {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
 
-/* Discrete controls — buttons, chips, form fields — get the full 44px
+/* Discrete controls (buttons, chips, form fields) get the full 44px
    recommended by the iOS and Android guidelines. */
 @utility tap {
   min-height: 2.75rem;
@@ -248,4 +253,145 @@
   display: inline-block;
   padding-block: 0.375rem;
   min-height: 1.75rem;
+}
+
+/* Press feedback for primary actions. `:active` is a real press on touch,
+   so unlike hover it needs no pointer gating. scale() takes the label and
+   any icon with it, which is what makes it read as physical. */
+@utility press {
+  transition: transform 160ms var(--ease-out);
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@layer components {
+  /* Photograph zoom inside a hoverable card.
+     Explicitly gated on a fine pointer: on touch, a tap fires a synthetic
+     hover and the image would stay zoomed after the finger lifts. This sits
+     at the "tens of times a day" tier, so it is deliberately near
+     imperceptible, 1.02 over 200ms, not 1.05 over 500ms. */
+  .media-zoom {
+    transition: transform 200ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .media-zoom {
+      transform: scale(1.02);
+    }
+  }
+}
+
+@layer components {
+  /* Lightbox. Backdrop and figure animate together so they read as one
+     surface, and the exit mirrors the entrance, an entrance that animates
+     followed by an exit that snaps reads as a bug.
+     transform-origin stays centred: the modal exemption, since it is not
+     anchored to a trigger. */
+  .lightbox {
+    animation: lightbox-in 250ms var(--ease-out) both;
+  }
+  .lightbox[data-closing] {
+    animation: lightbox-out 200ms var(--ease-out) both;
+  }
+  .lightbox-figure {
+    animation: lightbox-figure-in 250ms var(--ease-out) both;
+  }
+  .lightbox[data-closing] .lightbox-figure {
+    animation: lightbox-figure-out 200ms var(--ease-out) both;
+  }
+}
+
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes lightbox-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes lightbox-figure-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes lightbox-figure-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: scale(0.96); }
+}
+
+/* ==========================================================================
+   Scroll reveal
+   --------------------------------------------------------------------------
+   Driven entirely by CSS scroll-driven animations, no IntersectionObserver,
+   no hydration cost, and it runs off the main thread, which is the whole
+   point on a mid-range Android over 3G where JS-driven reveals drop frames
+   while the page is still loading images.
+
+   Content is visible by default. The hidden start state only exists inside
+   @supports, so browsers without scroll timelines (Firefox, Safari < 26)
+   simply show everything, no blank-content flash, no no-JS trap.
+
+   Marketing surfaces only. This is not applied to functional UI.
+   ========================================================================== */
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    /* Grid children share geometry, so they would otherwise all resolve at
+       once. Offsetting each child's range walks the reveal across the row.
+       Capped at six, beyond that the last card lags noticeably behind the
+       scroll and the wave stops reading as intentional. */
+    [data-reveal-group] > * {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+    }
+    [data-reveal-group] > *:nth-child(1) { animation-range: entry 0% entry 45%; }
+    [data-reveal-group] > *:nth-child(2) { animation-range: entry 6% entry 51%; }
+    [data-reveal-group] > *:nth-child(3) { animation-range: entry 12% entry 57%; }
+    [data-reveal-group] > *:nth-child(4) { animation-range: entry 18% entry 63%; }
+    [data-reveal-group] > *:nth-child(5) { animation-range: entry 24% entry 69%; }
+    [data-reveal-group] > *:nth-child(n + 6) { animation-range: entry 30% entry 75%; }
+  }
+}
+
+/* The mobile giving bar arrives once the reader has committed to the page,
+   rather than covering content from pixel zero. Also scroll-driven, so it
+   costs nothing; where scroll timelines are unsupported it is simply always
+   present, which is the current behaviour and perfectly usable. */
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-donate-bar] {
+      animation: bar-in linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 240px 400px;
+    }
+  }
 }

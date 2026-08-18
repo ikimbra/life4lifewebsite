@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/content/projects";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Our Programmes",
   description:
-    "Our programmes across Kasese District, Uganda — clean water, orphan sponsorship, hot meals, Qurbani, education, healthcare, livelihoods and more.",
+    "Our programmes across Kasese District, Uganda: clean water, orphan sponsorship, hot meals, Qurbani, education, healthcare, livelihoods and more.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
@@ -14,24 +16,15 @@ export default function ProjectsPage() {
 
   return (
     <main id="main">
-      <section className="border-b border-border bg-surface">
-        <div className="container-page py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-ink">
-            Our work
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold text-foreground sm:text-5xl">
-            {projects.length} programmes, one district, no overheads taken.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-sand-700">
-            Every programme below runs in and around Kasese District, Western
-            Uganda. Choose the work you want to fund — 100% of it reaches that
-            programme.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our work"
+        title={`${projects.length} programmes, one district, no overheads taken.`}
+        lead="Every programme below runs in and around Kasese District, Western Uganda. Choose the work you want to fund, and 100% of it reaches that programme."
+        image="hot-meals/serving-the-children"
+      />
 
       <section className="container-page py-16 lg:py-20">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-group className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {active.map((p, i) => (
             <ProjectCard key={p.slug} project={p} priority={i < 3} />
           ))}
@@ -49,7 +42,7 @@ export default function ProjectsPage() {
               published photography or final costings for them. We would rather
               tell you that than show you something misleading.
             </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div data-reveal-group className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {launching.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
               ))}

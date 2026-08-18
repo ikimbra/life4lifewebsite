@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { GalleryGrid, type GalleryItem } from "@/components/gallery-grid";
 import manifest from "@/content/gallery-manifest.json";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Photographs from Life 4 Life Relief Aid's work across Kasese District, Uganda — water wells, hot meals, Qurbani, orphan care, wheelchairs and masjid construction.",
+    "Photographs from Life 4 Life Relief Aid's work across Kasese District, Uganda: water wells, hot meals, Qurbani, orphan care, wheelchairs and masjid construction.",
+  alternates: { canonical: "/gallery" },
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -59,20 +61,12 @@ export default function GalleryPage() {
 
   return (
     <main id="main">
-      <section className="border-b border-border bg-surface">
-        <div className="container-page py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-ink">
-            From the field
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold text-foreground sm:text-5xl">
-            Gallery
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-sand-700">
-            Photographs taken by our team across Kasese District. Every image is
-            our own, shared with the consent of the people pictured.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="From the field"
+        title="Gallery"
+        lead="Photographs taken by our team across Kasese District. Every image is our own, shared with the consent of the people pictured."
+        image="community/community-gathering"
+      />
 
       <section className="container-page py-12 lg:py-16">
         <GalleryGrid items={items} categories={categories} />

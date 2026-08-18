@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatAmount, lowestAmount, type Project } from "@/content/projects";
 
-/* Accent is resolved through a lookup rather than string interpolation —
+/* Accent is resolved through a lookup rather than string interpolation,
    Tailwind cannot see dynamically built class names at build time. */
 const accentBar: Record<Project["accent"], string> = {
   orange: "bg-orange-500",
@@ -33,7 +33,7 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
           fill
           priority={priority}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+          className="media-zoom object-cover"
         />
         {project.status === "launching" && (
           <span className="absolute left-3 top-3 rounded-full bg-background/95 px-3 py-1 text-xs font-semibold text-sand-700 shadow-sm">

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 /* DRAFT. This must be reviewed by the client and, ideally, a legal adviser
-   before launch — a payment provider will also require a published privacy
+   before launch: a payment provider will also require a published privacy
    and refund policy as a condition of merchant approval. */
 
 export default function PrivacyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
     <main id="main" className="container-page py-16 lg:py-20">
       <div className="mx-auto max-w-2xl">
         <div className="rounded-md border border-orange-200 bg-orange-50 px-4 py-3 text-sm font-medium text-sand-800">
-          Draft — pending review by {site.legalName} before launch.
+          Draft: pending review by {site.legalName} before launch.
         </div>
 
         <h1 className="mt-8 font-display text-4xl font-semibold text-foreground">
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-2">
               When you donate, contact us, volunteer or subscribe to our
-              newsletter, we collect the details you provide — typically your
+              newsletter, we collect the details you provide: typically your
               name, email address, telephone number and, for donations, the
               payment information required to process your gift.
             </p>

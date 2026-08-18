@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Life 4 Life Relief Aid began in 2019 with two people delivering COVID-19 relief in Kasese. Today it is a registered Ugandan charity running sixteen programmes.",
+    "Life 4 Life Relief Aid began in 2019 with two people delivering COVID-19 relief in Kasese. Today it is a registered Ugandan charity running seventeen programmes.",
+  alternates: { canonical: "/about" },
 };
 
 const values = [
@@ -32,7 +33,7 @@ const values = [
   },
   {
     name: "Collaboration",
-    body: "We work as one team, building on each other's strengths — within the organisation, the community and our partners.",
+    body: "We work as one team, building on each other's strengths, within the organisation, the community and our partners.",
   },
 ];
 
@@ -42,7 +43,7 @@ const letter = [
   "When my colleague Baluku Halid and I started this journey in 2019, we had no idea that a small act of kindness during the COVID-19 pandemic would grow into the organisation you see today.",
   "The pandemic showed us what community really means. We watched families struggling without basic necessities, children going hungry, and elderly people left entirely without support. We could not stand by. With whatever little we had, we started distributing food, water and supplies to those who needed them most. The smiles on children's faces and the tears of gratitude from their mothers became our driving force.",
   "On 22 July 2024, when we received official recognition, I felt a deep sense of responsibility. This was no longer about us. It was about the thousands of people who would benefit from our expanded reach, and the generous hearts of supporters around the world.",
-  "To every donor, partner and supporter: your trust is sacred to us. Our 100% donation policy is not a slogan — it is our covenant with you. We do not take administrative fees from your donations, because your generosity should reach its destination in full.",
+  "To every donor, partner and supporter: your trust is sacred to us. Our 100% donation policy is not a slogan. It is our covenant with you. We do not take administrative fees from your donations, because your generosity should reach its destination in full.",
   "We do not just want to give someone a meal; we want to help them build a livelihood. We do not just want to treat illness; we want to prevent it. We are working toward a Uganda where no child goes to bed hungry, where clean water is accessible to all, and where every person can live with dignity.",
   "Whether you contribute $1 or $1,000, sponsor an orphan, or simply share our message, you become part of a movement that is changing lives.",
 ];
@@ -50,28 +51,12 @@ const letter = [
 export default function AboutPage() {
   return (
     <main id="main">
-      {/* Hero */}
-      <section className="relative isolate">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="/images/community/children-running.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-sand-950/92 via-sand-950/75 to-sand-950/40" />
-        </div>
-        <div className="container-page py-20 lg:py-28">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-orange-300">
-            About us
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.1] text-white sm:text-5xl">
-            It started with two people who refused to look away.
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About us"
+        title="It started with two people who refused to look away."
+        lead="A registered Ugandan charity serving Kasese District since 2019."
+        image="community/children-running"
+      />
 
       {/* Story */}
       <section className="container-page py-16 lg:py-20">
@@ -84,7 +69,7 @@ export default function AboutPage() {
               In 2019, {site.founders[0].name} and {site.founders[1].name} formed
               a community group to deliver relief to families hit by the COVID-19
               pandemic. They worked voluntarily, distributing water, food and
-              basic guidance to households across Kasese District — and that work
+              basic guidance to households across Kasese District, and that work
               saved lives.
             </p>
             <p>
@@ -136,7 +121,7 @@ export default function AboutPage() {
         <p className="mt-3 max-w-2xl text-lg text-sand-700">
           The guiding principles we hold ourselves to in every programme we run.
         </p>
-        <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-group className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {values.map((v) => (
             <div
               key={v.name}

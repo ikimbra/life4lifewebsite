@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CountUp } from "@/components/count-up";
 import { ProjectCard } from "@/components/project-card";
 import { featuredSlugs, getProject, projects } from "@/content/projects";
 import { donationPolicy, site, stats } from "@/content/site";
+import { PageHero } from "@/components/page-hero";
 
 const featured = featuredSlugs
   .map(getProject)
@@ -11,53 +13,29 @@ const featured = featuredSlugs
 export default function Home() {
   return (
     <main id="main">
-      {/* ───────────────────────── Hero ─────────────────────────
-          Photography-led, as the storytelling pattern calls for. The image
-          is the joy at the end of the water programme, not the hardship at
-          the start — donors respond to what their money achieves. */}
-      <section className="relative isolate">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="/images/water/children-drinking-at-tap.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          {/* Two-stop scrim: dense enough at the left for AA text contrast,
-              clearing to the right so the photograph still reads. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-sand-950/90 via-sand-950/70 to-sand-950/30" />
-        </div>
-
-        <div className="container-page flex min-h-[34rem] flex-col justify-center py-20 sm:min-h-[40rem] lg:py-28">
-          <p className="font-sans text-sm font-semibold uppercase tracking-[0.16em] text-orange-300">
-            {site.tagline}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-            Clean water, a hot meal, a child kept in school.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-sand-200">
-            We serve the most vulnerable communities of Kasese District in
-            Western Uganda — and 100% of what you give reaches them.
-          </p>
-
-          <div className="mt-9 flex flex-wrap gap-3">
+      <PageHero
+        eyebrow={site.tagline}
+        title="Clean water, a hot meal, a child kept in school."
+        lead="We serve the most vulnerable communities of Kasese District in Western Uganda, and 100% of what you give reaches them."
+        image="water/children-drinking-at-tap"
+        size="lg"
+        actions={
+          <>
             <Link
               href="/donate"
-              className="rounded-md bg-primary px-7 py-3.5 text-base font-semibold text-on-primary shadow-lg transition-colors duration-200 hover:bg-orange-800"
+              className="press rounded-md bg-primary px-7 py-3.5 text-base font-semibold text-on-primary shadow-lg transition-colors duration-200 hover:bg-orange-800"
             >
               Donate now
             </Link>
             <Link
               href="/projects"
-              className="rounded-md border border-white/30 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/20"
+              className="press rounded-md border border-white/30 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/20"
             >
               See our work
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* ─────────────────── Trust bar ───────────────────
           Placed immediately below the hero: the 100% policy is this
@@ -99,7 +77,7 @@ export default function Home() {
               <p>
                 In 2019, {site.founders[0].name} and {site.founders[1].name}{" "}
                 began delivering water, food and supplies to families hit by
-                COVID-19 — with no funding, and no organisation behind them.
+                COVID-19, with no funding, and no organisation behind them.
               </p>
               <p>
                 On {site.registeredOn}, that work became a charity licensed by
@@ -118,17 +96,24 @@ export default function Home() {
           </div>
 
           {/* Stats. Provisional figures are labelled, never presented as
-              audited — unevidenced impact claims are the fastest way for a
+              audited unevidenced impact claims are the fastest way for a
               charity site to lose a donor's trust. */}
-          <div className="grid grid-cols-2 gap-4 self-start">
+          <div data-reveal-group className="grid grid-cols-2 gap-4 self-start">
             {stats.map((s) => (
               <div
                 key={s.label}
                 className="rounded-xl border border-border bg-surface p-6"
               >
-                <p className="tabular font-display text-4xl font-semibold text-orange-ink">
-                  {s.value}
-                </p>
+                {s.animate ? (
+                  <CountUp
+                    value={s.value}
+                    className="tabular block font-display text-4xl font-semibold text-orange-ink"
+                  />
+                ) : (
+                  <p className="tabular font-display text-4xl font-semibold text-orange-ink">
+                    {s.value}
+                  </p>
+                )}
                 <p className="mt-1.5 text-sm font-medium leading-snug text-sand-700">
                   {s.label}
                 </p>
@@ -153,13 +138,13 @@ export default function Home() {
             This is what $2,000 changes.
           </h2>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div data-reveal-group className="mt-10 grid gap-6 md:grid-cols-2">
             {[
               {
                 img: "collecting-from-stream-before",
                 tag: "Before",
                 tagClass: "bg-sand-800 text-sand-200",
-                copy: "Families draw water from open streams — the same water that carries the illnesses we spend the rest of the year treating.",
+                copy: "Families draw water from open streams: the same water that carries the illnesses we spend the rest of the year treating.",
               },
               {
                 img: "filling-jerrycans-clean",
@@ -219,7 +204,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-reveal-group className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <ProjectCard key={p.slug} project={p} priority={i < 2} />
           ))}
@@ -228,10 +213,10 @@ export default function Home() {
 
       {/* ─────────────────── Founder's word ─────────────────── */}
       <section className="border-y border-border bg-surface py-20 lg:py-24">
-        <div className="container-page max-w-4xl">
+        <div data-reveal className="container-page max-w-4xl">
           <figure>
             <blockquote className="font-display text-2xl leading-[1.4] text-foreground sm:text-3xl">
-              &ldquo;Charity is not about pity — it is about recognising our
+              &ldquo;Charity is not about pity. It is about recognising our
               shared humanity. When we lift others, we lift ourselves.&rdquo;
             </blockquote>
             <figcaption className="mt-7 flex items-center gap-4">
@@ -268,7 +253,7 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/donate"
-                  className="rounded-md bg-white px-7 py-3.5 font-semibold text-orange-ink shadow-sm transition-colors duration-200 hover:bg-orange-50"
+                  className="press rounded-md bg-white px-7 py-3.5 font-semibold text-orange-ink shadow-sm transition-colors duration-200 hover:bg-orange-50"
                 >
                   Donate now
                 </Link>

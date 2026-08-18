@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
     "Partner with Life 4 Life Relief Aid, volunteer your skills, or fundraise for communities in Kasese District, Uganda.",
+  alternates: { canonical: "/get-involved" },
 };
 
 const partnership = [
@@ -17,7 +19,7 @@ const partnership = [
 
 const volunteering = [
   { t: "On-ground support", b: "Join distributions, builds and campaigns in Kasese District." },
-  { t: "Skills training", b: "Teach a trade — tailoring, farming, construction, IT." },
+  { t: "Skills training", b: "Teach a trade: tailoring, farming, construction, IT." },
   { t: "Administrative support", b: "Help with reporting, records and donor communications." },
   { t: "Fundraising events", b: "Organise an event or campaign in your own community." },
 ];
@@ -25,20 +27,12 @@ const volunteering = [
 export default function GetInvolvedPage() {
   return (
     <main id="main">
-      <section className="border-b border-border bg-surface">
-        <div className="container-page py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-green-ink">
-            Join us
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold text-foreground sm:text-5xl">
-            Together for humanity
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-sand-700">
-            Partnerships are how the hardest problems in rural communities
-            actually get solved. If you want to give back, you are welcome here.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Join us"
+        title="Together for humanity"
+        lead="Partnerships are how the hardest problems in rural communities actually get solved. If you want to give back, you are welcome here."
+        image="community/field-team-at-work"
+      />
 
       <section className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -86,7 +80,7 @@ export default function GetInvolvedPage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-green-100">
               Tell us your organisation, your country, and the programme you are
-              interested in — we will come back to you with the details.
+              interested in. We will come back to you with the details.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export interface GalleryItem {
   src: string;
@@ -21,13 +21,24 @@ export function GalleryGrid({
 }) {
   const [filter, setFilter] = useState<string>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  /* Unmount is deferred by the exit duration so the closing animation can
+     play; without this the lightbox would animate open and then vanish. */
+  const [closing, setClosing] = useState(false);
+
+  const close = useCallback(() => {
+    setClosing(true);
+    window.setTimeout(() => {
+      setLightbox(null);
+      setClosing(false);
+    }, 200);
+  }, []);
 
   const shown = useMemo(
     () => (filter === "all" ? items : items.filter((i) => i.category === filter)),
     [filter, items],
   );
 
-  /* Reset the lightbox when the filter changes — otherwise the index points
+  /* Reset the lightbox when the filter changes otherwise the index points
      into the previous, differently-ordered list. Adjusted during render, not
      in an effect: an effect would briefly show the wrong photograph. */
   const [prevFilter, setPrevFilter] = useState(filter);
@@ -41,7 +52,7 @@ export function GalleryGrid({
   useEffect(() => {
     if (lightbox === null) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "Escape") close();
       if (e.key === "ArrowRight")
         setLightbox((i) => (i === null ? null : (i + 1) % shown.length));
       if (e.key === "ArrowLeft")
@@ -53,7 +64,7 @@ export function GalleryGrid({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [lightbox, shown.length]);
+  }, [lightbox, shown.length, close]);
 
   const active = lightbox !== null ? shown[lightbox] : null;
 
@@ -106,7 +117,7 @@ export function GalleryGrid({
               fill
               loading={i < 8 ? "eager" : "lazy"}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+              className="media-zoom object-cover"
             />
             <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-sand-950/85 to-transparent p-3 pt-8 text-left text-xs font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
               {item.caption}
@@ -127,8 +138,9 @@ export function GalleryGrid({
           role="dialog"
           aria-modal="true"
           aria-label={active.caption}
-          className="fixed inset-0 z-50 flex flex-col bg-sand-950/95 p-4 backdrop-blur-sm"
-          onClick={() => setLightbox(null)}
+          data-closing={closing || undefined}
+          className="lightbox fixed inset-0 z-50 flex flex-col bg-sand-950/95 p-4 backdrop-blur-sm"
+          onClick={close}
         >
           <div className="flex items-center justify-between gap-4 text-white">
             <p className="text-sm">
@@ -139,7 +151,7 @@ export function GalleryGrid({
             </p>
             <button
               type="button"
-              onClick={() => setLightbox(null)}
+              onClick={close}
               aria-label="Close"
               className="flex size-11 cursor-pointer items-center justify-center rounded-md transition-colors duration-200 hover:bg-white/10"
             >
@@ -158,7 +170,7 @@ export function GalleryGrid({
           </div>
 
           <div
-            className="relative flex-1"
+            className="lightbox-figure relative flex-1"
             onClick={(e) => e.stopPropagation()}
           >
             <Image

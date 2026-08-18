@@ -20,7 +20,7 @@ export function ContactForm() {
     const body = [
       `Name: ${data.get("firstName")} ${data.get("lastName")}`,
       `Email: ${data.get("email")}`,
-      `Phone: ${data.get("phone") || "—"}`,
+      `Phone: ${data.get("phone") || "Not provided"}`,
       "",
       String(data.get("message") ?? ""),
     ].join("\n");

@@ -4,7 +4,7 @@
  * Copy is rewritten from the client's source documents for grammar and donor
  * clarity; every fact, price, hadith and statistic is preserved as supplied.
  * Figures the client has not yet provided are marked `enquire` rather than
- * invented — see `donations[].amount`.
+ * invented; see `donations[].amount`.
  *
  * This module's shape intentionally mirrors the Sanity schema it will migrate
  * to, so swapping the data source later is a fetch change, not a refactor.
@@ -30,7 +30,7 @@ export interface Project {
   tagline: string;
   /** The one-sentence promise, used in card and hero. */
   summary: string;
-  /** Why this programme exists — the situation it responds to. */
+  /** Why this programme exists: the situation it responds to. */
   challenge?: string;
   /** Body copy, one string per paragraph. */
   body: string[];
@@ -53,10 +53,10 @@ export const projects: Project[] = [
     summary:
       "Hand-dug wells and handpumps that put safe drinking water within reach of whole villages.",
     challenge:
-      "Children and mothers still walk long distances for water, carrying jerrycans on their heads and backs. The nearest sources — ponds, rivers and open wells — carry the bacteria and pathogens behind much of the illness we treat.",
+      "Children and mothers still walk long distances for water, carrying jerrycans on their heads and backs. The nearest sources (ponds, rivers and open wells) carry the bacteria and pathogens behind much of the illness we treat.",
     body: [
       "Water is a basic necessity and a fundamental human right, yet communities across Kasese still draw theirs from open streams. The walk drains women and children physically, keeps girls out of school, and delivers water that is unsafe before it even reaches the home.",
-      "We dig, line and case wells by hand, cap them with a concrete apron and fit a handpump. What was a full morning's walk to a muddy stream becomes a two-minute walk to clean water — and the illnesses that follow dirty water stop arriving.",
+      "We dig, line and case wells by hand, cap them with a concrete apron and fit a handpump. What was a full morning's walk to a muddy stream becomes a two-minute walk to clean water, and the illnesses that follow dirty water stop arriving.",
       "A well serves a village for decades. It is the single most durable thing a donor can fund with us.",
     ],
     donations: [
@@ -85,16 +85,16 @@ export const projects: Project[] = [
     name: "Orphan Care Sponsorship",
     tagline: "Sponsor a child, and know them",
     summary:
-      "Full sponsorship for an orphaned child — food, healthcare, schooling and clothing — with a named child and reports back to you.",
+      "Full sponsorship for an orphaned child covering food, healthcare, schooling and clothing, with a named child and reports back to you.",
     challenge:
       "Uganda has over 1.7 million orphaned children. One in three Ugandan families has taken in an orphan. Children without support are exposed to abuse and exploitation.",
     body: [
       "We regard the care of orphans as among the greatest of deeds. Sponsorship covers what any parent would provide: food on the table, medical care when a child is sick, school fees and materials, and clothes that fit.",
-      "Sponsorship is not anonymous. For every child you sponsor you receive a full profile and photograph, an agreement setting out terms and objectives, and a detailed annual report covering their growth, schooling, health and livelihood — with photographs, video correspondence and validated receipts.",
+      "Sponsorship is not anonymous. For every child you sponsor you receive a full profile and photograph, an agreement setting out terms and objectives, and a detailed annual report covering their growth, schooling, health and livelihood, with photographs, video correspondence and validated receipts.",
       "Orphans are part of this society and can help transform it, if they are protected, educated and kept in good health.",
     ],
     quote: {
-      text: "Whoever takes care of an orphan, he and I will be together in Paradise like this — and he held up his two fingers together.",
+      text: "Whoever takes care of an orphan, he and I will be together in Paradise like this, and he held up his two fingers together.",
       attribution: "Prophet Muhammad ﷺ",
     },
     donations: [
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       "Iftar meals and Ramadan food packs for families who cannot afford to break their fast properly.",
     body: [
       "Through Ramadan we cook and distribute iftar to masjids across the district, and deliver food packs so families have something for suhur as well as iftar.",
-      "The need is greatest here precisely when attendance is highest — congregations swell, and most of those gathering cannot afford a decent meal after a long day of fasting. Every Ramadan, with our donors, we have been there.",
+      "The need is greatest here precisely when attendance is highest: congregations swell, and most of those gathering cannot afford a decent meal after a long day of fasting. Every Ramadan, with our donors, we have been there.",
     ],
     quote: {
       text: "Whoever gives food to a fasting person to break his fast shall have the same reward as him, without decreasing anything from the reward of the fasting person.",
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     summary:
       "Your Qurbani sacrificed and distributed fresh to widows, orphans and elderly families in Kasese.",
     body: [
-      "Each Eid al-Adha we fulfil the Sunnah of Ibrahim (AS) on your behalf, and share the meat among the neediest households — mothers with orphans, widows, and the elderly who struggle.",
+      "Each Eid al-Adha we fulfil the Sunnah of Ibrahim (AS) on your behalf, and share the meat among the neediest households: mothers with orphans, widows, and the elderly who struggle.",
       "For families who go an entire year without meat, this is not ritual. It is nourishment they badly need, and a day of dignity.",
       "We distribute fresh, on your behalf, and reach the households we already know are struggling.",
     ],
@@ -230,9 +230,9 @@ export const projects: Project[] = [
     name: "Zakat",
     tagline: "Your Zakat, delivered as an amanah",
     summary:
-      "We distribute your Zakat to the categories Allah specified — the poor, the destitute, widows, orphans and the elderly.",
+      "We distribute your Zakat to the categories Allah specified: the poor, the destitute, widows, orphans and the elderly.",
     body: [
-      "Zakat is obligatory on every adult Muslim who meets the Nisab threshold: 2.5% of qualifying wealth, given annually. It is distinct from voluntary sadaqah — it is a right the poor hold over your wealth.",
+      "Zakat is obligatory on every adult Muslim who meets the Nisab threshold: 2.5% of qualifying wealth, given annually. It is distinct from voluntary sadaqah. It is a right the poor hold over your wealth.",
       "We treat your Zakat as an amanah. It goes to the category you specify, or to whoever needs it most, and it is never absorbed into running costs.",
       "Zakat purifies wealth from greed, redistributes it toward those enduring hardship, and binds a society together across the gap between rich and poor.",
     ],
@@ -251,7 +251,7 @@ export const projects: Project[] = [
     summary:
       "School fees, uniforms, books and mobility equipment for disadvantaged children, orphans and children with disabilities.",
     body: [
-      "We equip children with what school actually requires — books, pens, mathematical sets, bags and uniforms — because a child without materials is a child who drops out.",
+      "We equip children with what school actually requires (books, pens, mathematical sets, bags and uniforms), because a child without materials is a child who drops out.",
       "We also fund wheelchairs. A child who cannot get to school will not be educated, however many books they own, and mobility is the difference between a life at home and a life in the classroom.",
       "Our focus is the children most likely to be left behind: orphans, girls, and children with physical disabilities.",
     ],
@@ -300,11 +300,11 @@ export const projects: Project[] = [
     name: "Livelihoods",
     tagline: "From aid to independence",
     summary:
-      "Goats, sewing machines, market stalls and poultry — assets that turn a supported family into a self-reliant one.",
+      "Goats, sewing machines, market stalls and poultry: assets that turn a supported family into a self-reliant one.",
     body: [
       "Delivering relief matters, but changing a family's trajectory matters more. A goat breeds. A sewing machine earns. A market stall trades. Each one moves a household off aid and onto its own income.",
       "We select families in genuine destitution, provide the asset and the training to use it, and stay in contact as the income builds.",
-      "This is the work that eventually makes our other programmes unnecessary for that family — which is the point.",
+      "This is the work that eventually makes our other programmes unnecessary for that family, which is the point.",
     ],
     donations: [
       { label: "Goat rearing", amount: null },
@@ -384,7 +384,7 @@ export const projects: Project[] = [
     body: [
       "In many rural communities here, the nearest masjid is a long walk away, or the existing structure has decayed past repair. We build in the places where that gap is widest.",
       "A masjid is never only a prayer space. It becomes the education hub, the meeting place, and the point where a scattered community holds together.",
-      "We are currently building — clearing the site, laying brick, and preparing timber for the roof. The photographs below are from that work in progress.",
+      "We are currently building: clearing the site, laying brick, and preparing timber for the roof. The photographs below are from that work in progress.",
     ],
     quote: {
       text: "Whoever builds a house for Allah, Allah will build for him a house in Paradise.",
@@ -417,7 +417,7 @@ export const projects: Project[] = [
     summary:
       "Tailoring, farming, livestock, design and career guidance for young people and women entering work.",
     body: [
-      "Youth unemployment is the constraint on almost everything else here. We train in tailoring and fashion, livestock husbandry, cash crop farming and craft — trades with real local demand.",
+      "Youth unemployment is the constraint on almost everything else here. We train in tailoring and fashion, livestock husbandry, cash crop farming and craft: trades with real local demand.",
       "Alongside the skills we run career guidance and peer counselling, because knowing the trade and knowing how to build a living from it are different things.",
     ],
     donations: [
@@ -440,7 +440,7 @@ export const projects: Project[] = [
     challenge:
       "Cataracts cause approximately 57.7% of blindness in Uganda. Over 90% of the population is at risk of malaria. Hepatitis B chronically affects around 6% of Ugandans and caused 1,300 recorded deaths in 2022.",
     body: [
-      "Cataract blindness is treatable with surgery, and surgery is available in Uganda's referral hospitals — but the elderly, widows and disabled people we work with cannot pay for it. We identify patients, arrange screening, and support them through surgery and recovery until their sight returns.",
+      "Cataract blindness is treatable with surgery, and surgery is available in Uganda's referral hospitals, but the elderly, widows and disabled people we work with cannot pay for it. We identify patients, arrange screening, and support them through surgery and recovery until their sight returns.",
       "Alongside that we run malaria prevention with mosquito net distribution, hepatitis B screening and awareness, and treatment campaigns for the conjunctivitis outbreaks that recur across Kasese and keep children out of school.",
       "We work under the guidance of referral hospital clinicians and ophthalmologists, with local health workers and community leaders.",
     ],
@@ -460,11 +460,11 @@ export const projects: Project[] = [
   {
     slug: "housing",
     name: "Housing",
-    tagline: "Not a house — a home",
+    tagline: "Not a house: a home",
     summary:
       "Building homes for destitute families, widows, the elderly and people with disabilities.",
     body: [
-      "We build for households living in structures that no longer keep the weather out — widows, the elderly, orphaned families, and people with physical disabilities who need accessible housing.",
+      "We build for households living in structures that no longer keep the weather out: widows, the elderly, orphaned families, and people with physical disabilities who need accessible housing.",
       "It is not only shelter. It is an address, a stability, and the foundation on which the rest of a family's recovery is built.",
     ],
     donations: [
@@ -487,7 +487,7 @@ export const projects: Project[] = [
       "Tree planting, nursery beds, community cleanups and environmental education across Kasese.",
     body: [
       "Conservation here is not abstract. The same degraded land and polluted water that damages the ecosystem is what makes our water and food programmes necessary in the first place.",
-      "We plant trees, raise nursery beds, run community cleanups, and teach reduce-reuse-recycle in schools and community groups — balancing what people need now against what the land can carry.",
+      "We plant trees, raise nursery beds, run community cleanups, and teach reduce-reuse-recycle in schools and community groups, balancing what people need now against what the land can carry.",
     ],
     donations: [
       { label: "Tree planting", amount: null },
@@ -525,5 +525,5 @@ export const getProject = (slug: string) => projects.find((p) => p.slug === slug
 
 export const activeProjects = projects.filter((p) => p.status === "active");
 
-/** Homepage feature set — the four with the strongest evidence behind them. */
+/** Homepage feature set: the four with the strongest evidence behind them. */
 export const featuredSlugs = ["clean-water", "orphan-care", "hot-meals", "qurbani"];

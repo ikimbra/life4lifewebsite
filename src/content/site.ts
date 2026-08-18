@@ -2,7 +2,7 @@
  * Organisation-wide facts, contact details and headline figures.
  *
  * Registration numbers, banking details, addresses and phone numbers are
- * reproduced exactly as supplied by the client — do not "tidy" them.
+ * reproduced exactly as supplied by the client. Do not "tidy" them.
  */
 
 import { projects } from "./projects";
@@ -62,7 +62,7 @@ export const site = {
 /**
  * Headline impact figures.
  *
- * PROVISIONAL — these are placeholders pending verified numbers from the
+ * PROVISIONAL. These are placeholders pending verified numbers from the
  * client. Every entry is flagged so they can be found and replaced in one
  * pass, and the UI labels them rather than presenting them as audited.
  *
@@ -73,14 +73,17 @@ export interface Stat {
   value: string;
   label: string;
   provisional: boolean;
+  /** Count up on scroll. False for the founding year: counting a date up
+   *  from zero is meaningless and reads as a glitch. */
+  animate: boolean;
 }
 
 export const stats: Stat[] = [
-  { value: "2019", label: "Serving Kasese since", provisional: false },
+  { value: "2019", label: "Serving Kasese since", provisional: false, animate: false },
   /* Derived, so the headline figure can never drift from the actual list. */
-  { value: String(projects.length), label: "Programmes", provisional: false },
-  { value: "100%", label: "Of your donation delivered", provisional: false },
-  { value: "5,000+", label: "People reached", provisional: true },
+  { value: String(projects.length), label: "Programmes", provisional: false, animate: true },
+  { value: "100%", label: "Of your donation delivered", provisional: false, animate: true },
+  { value: "5,000+", label: "People reached", provisional: true, animate: true },
 ];
 
 /** The claim the whole site rests on. Worth stating plainly and often. */

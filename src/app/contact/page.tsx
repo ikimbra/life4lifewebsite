@@ -1,29 +1,23 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/content/site";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact Life 4 Life Relief Aid in ${site.contact.town}, ${site.contact.district}, Uganda — by phone, email or post.`,
+  description: `Contact Life 4 Life Relief Aid in ${site.contact.town}, ${site.contact.district}, Uganda by phone, email or post.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <main id="main">
-      <section className="border-b border-border bg-surface">
-        <div className="container-page py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-ink">
-            Get in touch
-          </p>
-          <h1 className="mt-3 font-display text-4xl font-semibold text-foreground sm:text-5xl">
-            Contact us
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-sand-700">
-            Questions about a programme, a donation, or partnering with us? We
-            answer every message.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Get in touch"
+        title="Contact us"
+        lead="Questions about a programme, a donation, or partnering with us? We answer every message."
+        image="community/women-of-the-community"
+      />
 
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">

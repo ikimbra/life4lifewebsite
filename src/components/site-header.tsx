@@ -19,7 +19,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  /* Close the sheet on navigation — otherwise it stays open over the new
+  /* Close the sheet on navigation; otherwise it stays open over the new
      page, which reads as a broken back button. Adjusted during render rather
      than in an effect: resetting state when a value changes is the case React
      explicitly documents for this, and an effect here causes a cascading
@@ -44,7 +44,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex shrink-0 items-center gap-2.5"
-          aria-label={`Life 4 Life Relief Aid — home`}
+          aria-label="Life 4 Life Relief Aid, home page"
         >
           <Image
             src="/logo.png"
@@ -80,7 +80,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/donate"
-            className="rounded-md bg-primary px-4 py-2.5 text-[0.9375rem] font-semibold text-on-primary shadow-sm transition-colors duration-200 hover:bg-orange-800 sm:px-5"
+            className="press rounded-md bg-primary px-4 py-2.5 text-[0.9375rem] font-semibold text-on-primary shadow-sm transition-colors duration-200 hover:bg-orange-800 sm:px-5"
           >
             Donate
           </Link>
@@ -113,13 +113,19 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {open && (
-        <nav
-          id="mobile-nav"
-          aria-label="Main"
-          className="border-t border-border bg-background lg:hidden"
-        >
-          <ul className="container-page py-2">
+      {/* Kept mounted rather than conditionally rendered, so it can animate
+          closed as well as open: an exit that snaps while the entrance
+          animates reads as a bug. `inert` takes it out of the tab order and
+          the accessibility tree while closed, which `pointer-events-none`
+          alone would not do. */}
+      <nav
+        id="mobile-nav"
+        aria-label="Main"
+        inert={!open}
+        data-closed={!open || undefined}
+        className="absolute inset-x-0 top-full origin-top border-b border-border bg-background shadow-lg transition-[opacity,transform] duration-200 ease-out data-closed:pointer-events-none data-closed:-translate-y-2 data-closed:opacity-0 lg:hidden"
+      >
+        <ul className="container-page py-2">
             {nav.map((item) => {
               const active =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -146,10 +152,9 @@ export function SiteHeader() {
               >
                 Get Involved
               </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

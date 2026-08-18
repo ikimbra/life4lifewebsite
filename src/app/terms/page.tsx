@@ -17,7 +17,7 @@ export default function TermsPage() {
     <main id="main" className="container-page py-16 lg:py-20">
       <div className="mx-auto max-w-2xl">
         <div className="rounded-md border border-orange-200 bg-orange-50 px-4 py-3 text-sm font-medium text-sand-800">
-          Draft — pending review by {site.legalName} before launch.
+          Draft: pending review by {site.legalName} before launch.
         </div>
 
         <h1 className="mt-8 font-display text-4xl font-semibold text-foreground">

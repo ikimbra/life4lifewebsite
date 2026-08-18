@@ -155,7 +155,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Legal — registration status is a trust signal, so it is stated in
+        {/* Legal registration status is a trust signal, so it is stated in
             full rather than reduced to two numbers. */}
         <div className="mt-12 border-t border-sand-800 pt-8">
           <p className="max-w-4xl text-xs leading-relaxed text-sand-400">

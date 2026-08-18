@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MobileDonateBar } from "@/components/mobile-donate-bar";
 import { formatAmount, getProject, projects, type Project } from "@/content/projects";
+import { PageHero } from "@/components/page-hero";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -17,14 +18,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  const image = `/images/${project.imageCategory}/${project.images[0]}.jpg`;
   return {
     title: project.name,
     description: project.summary,
+    alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
+      type: "article",
       title: `${project.name} · Life 4 Life Relief Aid`,
       description: project.summary,
-      images: [`/images/${project.imageCategory}/${project.images[0]}.jpg`],
+      url: `/projects/${project.slug}`,
+      images: [{ url: image, width: 2000, alt: project.name }],
     },
+    twitter: { card: "summary_large_image", images: [image] },
   };
 }
 
@@ -77,40 +83,15 @@ export default async function ProjectPage({
 
   return (
     <main id="main" className="pb-24 lg:pb-0">
-      {/* Hero */}
-      <section className="relative isolate">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src={`/images/${project.imageCategory}/${project.images[0]}.jpg`}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-sand-950/92 via-sand-950/75 to-sand-950/40" />
-        </div>
-
-        <div className="container-page py-20 lg:py-24">
-          <Link
-            href="/projects"
-            className="tap inline-flex items-center py-2 text-sm font-medium text-sand-300 transition-colors duration-200 hover:text-white"
-          >
-            ← All programmes
-          </Link>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.1] text-white sm:text-5xl">
-            {project.name}
-          </h1>
-          <p className="mt-4 max-w-xl text-lg leading-relaxed text-sand-200">
-            {project.summary}
-          </p>
-          {project.status === "launching" && (
-            <p className="mt-6 inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
-              Programme launching
-            </p>
-          )}
-        </div>
-      </section>
+      <PageHero
+        eyebrow={project.tagline}
+        title={project.name}
+        lead={project.summary}
+        image={`${project.imageCategory}/${project.images[0]}`}
+        backHref="/projects"
+        backLabel="← All programmes"
+        badge={project.status === "launching" ? "Programme launching" : undefined}
+      />
 
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_22rem] lg:gap-16">
@@ -159,7 +140,7 @@ export default async function ProjectPage({
                   &ldquo;{project.quote.text}&rdquo;
                 </blockquote>
                 <figcaption className="mt-3 text-sm font-medium text-muted">
-                  — {project.quote.attribution}
+                  {project.quote.attribution}
                 </figcaption>
               </figure>
             )}
@@ -170,7 +151,7 @@ export default async function ProjectPage({
                 <h2 className="font-display text-2xl font-semibold text-foreground">
                   From the field
                 </h2>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <div data-reveal-group className="mt-6 grid gap-3 sm:grid-cols-2">
                   {gallery.map((img, i) => (
                     <div
                       key={img}
