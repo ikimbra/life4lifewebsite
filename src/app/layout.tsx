@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Newsreader, Inter, Amiri } from "next/font/google";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 /* Display serif — headings, pull quotes, the storytelling voice. */
@@ -85,7 +87,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
-        {children}
+        <SiteHeader />
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

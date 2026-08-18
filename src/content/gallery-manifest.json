@@ -1,0 +1,502 @@
+{
+ "water": [
+  {
+   "slug": "children-drinking-at-tap",
+   "w": 1280,
+   "h": 720,
+   "src": "TCIF1081.JPG"
+  },
+  {
+   "slug": "collecting-from-stream-before",
+   "w": 1200,
+   "h": 1599,
+   "src": "DEJG9743.JPG"
+  },
+  {
+   "slug": "stream-source-before",
+   "w": 1200,
+   "h": 1599,
+   "src": "RTCA8623.JPG"
+  },
+  {
+   "slug": "child-carrying-jerrycan",
+   "w": 1200,
+   "h": 1599,
+   "src": "KKRU5216.JPG"
+  },
+  {
+   "slug": "well-shaft-excavation",
+   "w": 747,
+   "h": 1080,
+   "src": "BSIP0398.JPG"
+  },
+  {
+   "slug": "brick-lined-shaft",
+   "w": 747,
+   "h": 1080,
+   "src": "LVIH1020.JPG"
+  },
+  {
+   "slug": "shaft-depth",
+   "w": 768,
+   "h": 1020,
+   "src": "DTVY1427.JPG"
+  },
+  {
+   "slug": "wellhead-brick-collar",
+   "w": 747,
+   "h": 1080,
+   "src": "DRLW0451.JPG"
+  },
+  {
+   "slug": "pump-apron-poured",
+   "w": 768,
+   "h": 1020,
+   "src": "LXDC5987.JPG"
+  },
+  {
+   "slug": "completed-handpump",
+   "w": 768,
+   "h": 1020,
+   "src": "JOWS2996.JPG"
+  },
+  {
+   "slug": "filling-jerrycans-clean",
+   "w": 1118,
+   "h": 1282,
+   "src": "APGP6489.JPG"
+  },
+  {
+   "slug": "collecting-clean-water",
+   "w": 927,
+   "h": 1282,
+   "src": "GNZP4322.JPG"
+  },
+  {
+   "slug": "child-at-tap",
+   "w": 1920,
+   "h": 1920,
+   "src": "InShot_20250228_074759592.jpg"
+  },
+  {
+   "slug": "borehole-installation",
+   "w": 2000,
+   "h": 1115,
+   "src": "CamScanner 2025-06-11 04.59.jpg"
+  }
+ ],
+ "masjid": [
+  {
+   "slug": "brick-site-survey",
+   "w": 567,
+   "h": 1008,
+   "src": "EBAV6580.JPG"
+  },
+  {
+   "slug": "foundation-and-tank",
+   "w": 567,
+   "h": 1008,
+   "src": "CKBF1405.JPG"
+  },
+  {
+   "slug": "brickwork-progress",
+   "w": 567,
+   "h": 1008,
+   "src": "JGHD2693.JPG"
+  },
+  {
+   "slug": "site-walkthrough",
+   "w": 567,
+   "h": 1008,
+   "src": "LBCN3619.JPG"
+  },
+  {
+   "slug": "handling-bricks",
+   "w": 567,
+   "h": 1008,
+   "src": "JACB1043.JPG"
+  },
+  {
+   "slug": "timber-for-roofing",
+   "w": 567,
+   "h": 1008,
+   "src": "TONW8985.JPG"
+  },
+  {
+   "slug": "timber-transport",
+   "w": 567,
+   "h": 1008,
+   "src": "DHDW4607.JPG"
+  },
+  {
+   "slug": "completed-masjid",
+   "w": 1280,
+   "h": 960,
+   "src": "masjid_-_cambodia.jpg"
+  },
+  {
+   "slug": "masjid-exterior",
+   "w": 1080,
+   "h": 1080,
+   "src": "Build-a-Masjid-in-Bangladesh-1.jpg"
+  }
+ ],
+ "hot-meals": [
+  {
+   "slug": "plated-meals-laid-out",
+   "w": 1600,
+   "h": 1200,
+   "src": "ARAR6838.JPG"
+  },
+  {
+   "slug": "children-seated-meal",
+   "w": 1600,
+   "h": 1200,
+   "src": "CIJH4069.JPG"
+  },
+  {
+   "slug": "cooking-cauldron",
+   "w": 1200,
+   "h": 1600,
+   "src": "CAQG7881.JPG"
+  },
+  {
+   "slug": "stirring-the-pot",
+   "w": 1200,
+   "h": 1600,
+   "src": "DFAR6269.JPG"
+  },
+  {
+   "slug": "large-gathering-meal",
+   "w": 1200,
+   "h": 1600,
+   "src": "NTCW9646.JPG"
+  },
+  {
+   "slug": "children-eating",
+   "w": 1600,
+   "h": 1200,
+   "src": "OXJR0047.JPG"
+  },
+  {
+   "slug": "serving-the-children",
+   "w": 1600,
+   "h": 1200,
+   "src": "VFDT8045.JPG"
+  },
+  {
+   "slug": "communal-meal",
+   "w": 1600,
+   "h": 1200,
+   "src": "XSAO3290.JPG"
+  },
+  {
+   "slug": "plates-prepared",
+   "w": 1600,
+   "h": 1200,
+   "src": "TPON2909.JPG"
+  }
+ ],
+ "ramadan": [
+  {
+   "slug": "ramadan-food-pack-sack",
+   "w": 1080,
+   "h": 603,
+   "src": "HRKU4605.JPG"
+  },
+  {
+   "slug": "food-packs-field",
+   "w": 1368,
+   "h": 912,
+   "src": "KTYW9533.JPG"
+  },
+  {
+   "slug": "packs-ready-distribution",
+   "w": 1368,
+   "h": 912,
+   "src": "LLNI4581.JPG"
+  },
+  {
+   "slug": "pack-handover",
+   "w": 1368,
+   "h": 912,
+   "src": "TOAC4463.JPG"
+  },
+  {
+   "slug": "ramadan-distribution",
+   "w": 1368,
+   "h": 912,
+   "src": "TXNF6786.JPG"
+  },
+  {
+   "slug": "carrying-packs-home",
+   "w": 1600,
+   "h": 891,
+   "src": "NLEC6150.JPG"
+  },
+  {
+   "slug": "iftar-plates",
+   "w": 1368,
+   "h": 912,
+   "src": "YFTG0644.JPG"
+  }
+ ],
+ "food-packs": [
+  {
+   "slug": "delivery-to-home",
+   "w": 1280,
+   "h": 853,
+   "src": "AYUP9641.JPG"
+  },
+  {
+   "slug": "handover-elderly",
+   "w": 1280,
+   "h": 853,
+   "src": "GXRO4971.JPG"
+  },
+  {
+   "slug": "pack-handover-banner",
+   "w": 1404,
+   "h": 936,
+   "src": "XYKS1897.JPG"
+  },
+  {
+   "slug": "doorstep-delivery",
+   "w": 1404,
+   "h": 936,
+   "src": "YIKI9075.JPG"
+  },
+  {
+   "slug": "recipient-with-maize-flour",
+   "w": 744,
+   "h": 992,
+   "src": "NEW CONTENT\\FB_IMG_1747171861155.jpg"
+  },
+  {
+   "slug": "smiling-recipient",
+   "w": 750,
+   "h": 998,
+   "src": "NEW CONTENT\\FB_IMG_1747171868748.jpg"
+  }
+ ],
+ "qurbani": [
+  {
+   "slug": "qurbani-share",
+   "w": 1066,
+   "h": 1600,
+   "src": "KNTU8261.JPG"
+  },
+  {
+   "slug": "children-with-goats",
+   "w": 1368,
+   "h": 912,
+   "src": "MEML5879.JPG"
+  },
+  {
+   "slug": "goat-handover",
+   "w": 1368,
+   "h": 912,
+   "src": "XHDX7813.JPG"
+  },
+  {
+   "slug": "meat-prepared",
+   "w": 1350,
+   "h": 900,
+   "src": "CCPZ6440.JPG"
+  },
+  {
+   "slug": "qurbani-placard",
+   "w": 1066,
+   "h": 1600,
+   "src": "ULEC9237.JPG"
+  }
+ ],
+ "wheelchairs": [
+  {
+   "slug": "wheelchair-recipient",
+   "w": 780,
+   "h": 1040,
+   "src": "FGCL7749.JPG"
+  },
+  {
+   "slug": "child-in-new-wheelchair",
+   "w": 900,
+   "h": 1350,
+   "src": "GDJO5921.JPG"
+  },
+  {
+   "slug": "wheelchair-handover",
+   "w": 1350,
+   "h": 900,
+   "src": "QPMX6287.JPG"
+  },
+  {
+   "slug": "mobility-restored",
+   "w": 780,
+   "h": 1040,
+   "src": "SODF7368.JPG"
+  },
+  {
+   "slug": "fitting-the-chair",
+   "w": 900,
+   "h": 1350,
+   "src": "VLIR4536.JPG"
+  }
+ ],
+ "education": [
+  {
+   "slug": "scholastic-materials",
+   "w": 1080,
+   "h": 1920,
+   "src": "NEW CONTENT\\FB_IMG_1742533440493.jpg"
+  },
+  {
+   "slug": "school-supplies-handover",
+   "w": 1080,
+   "h": 1920,
+   "src": "NEW CONTENT\\FB_IMG_1742533444133.jpg"
+  },
+  {
+   "slug": "books-and-materials",
+   "w": 2000,
+   "h": 1111,
+   "src": "CamScanner 2025-06-11 04.19.jpg"
+  },
+  {
+   "slug": "children-studying",
+   "w": 466,
+   "h": 381,
+   "src": "NEW CONTENT\\1000001701.jpg"
+  }
+ ],
+ "orphans": [
+  {
+   "slug": "orphans-shared-meal",
+   "w": 1200,
+   "h": 1600,
+   "src": "FEMY5837.JPG"
+  },
+  {
+   "slug": "children-gathered",
+   "w": 1600,
+   "h": 1200,
+   "src": "KRZT2976.JPG"
+  },
+  {
+   "slug": "large-group-children",
+   "w": 1600,
+   "h": 1200,
+   "src": "PWWE7769.JPG"
+  }
+ ],
+ "livelihoods": [
+  {
+   "slug": "tailoring-machine",
+   "w": 1080,
+   "h": 810,
+   "src": "CamScanner 2025-06-12 07.12 (2).jpg"
+  },
+  {
+   "slug": "sewing-workshop",
+   "w": 960,
+   "h": 540,
+   "src": "CamScanner 2025-06-12 07.13.jpg"
+  },
+  {
+   "slug": "retail-stall",
+   "w": 810,
+   "h": 1080,
+   "src": "CamScanner 2025-06-12 07.24.jpg"
+  },
+  {
+   "slug": "produce-stall",
+   "w": 809,
+   "h": 1080,
+   "src": "CamScanner 2025-06-11 04.11.jpg"
+  },
+  {
+   "slug": "goat-herd",
+   "w": 1080,
+   "h": 608,
+   "src": "FB_IMG_1718309880152.jpg"
+  },
+  {
+   "slug": "livestock",
+   "w": 1025,
+   "h": 636,
+   "src": "goat-farming.jpg"
+  },
+  {
+   "slug": "poultry",
+   "w": 1040,
+   "h": 780,
+   "src": "FB_IMG_1718309877760.jpg"
+  },
+  {
+   "slug": "farming",
+   "w": 640,
+   "h": 423,
+   "src": "agriculture.jpg"
+  },
+  {
+   "slug": "cash-crop-field",
+   "w": 750,
+   "h": 1000,
+   "src": "CamScanner 2025-06-11 03.48 (1).jpg"
+  }
+ ],
+ "quran": [
+  {
+   "slug": "quran-distribution",
+   "w": 1080,
+   "h": 1895,
+   "src": "Screenshot_20250423_110747_Gallery.jpg"
+  },
+  {
+   "slug": "madrassa-students",
+   "w": 1008,
+   "h": 567,
+   "src": "CamScanner 2025-06-11 04.16.jpg"
+  },
+  {
+   "slug": "community-gathering",
+   "w": 2000,
+   "h": 1199,
+   "src": "NEW CONTENT\\1000002738.jpg"
+  }
+ ],
+ "zakat": [
+  {
+   "slug": "zakat-handover",
+   "w": 1200,
+   "h": 1600,
+   "src": "OAGV2095.JPG"
+  }
+ ],
+ "community": [
+  {
+   "slug": "children-running",
+   "w": 1920,
+   "h": 1440,
+   "src": "Bothar_Project_Annertech_1.jpg"
+  },
+  {
+   "slug": "women-of-the-community",
+   "w": 1404,
+   "h": 936,
+   "src": "AKCP9055.JPG"
+  },
+  {
+   "slug": "community-gathering",
+   "w": 1342,
+   "h": 895,
+   "src": "USSD2654.JPG"
+  },
+  {
+   "slug": "field-team-at-work",
+   "w": 912,
+   "h": 1368,
+   "src": "CWBW0826.JPG"
+  }
+ ]
+}
