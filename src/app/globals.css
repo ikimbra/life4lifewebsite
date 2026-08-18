@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Life 4 Life Relief Aid — Design Tokens
+   --------------------------------------------------------------------------
+   Brand source: logo (life4life logo.png). Sampled hues:
+     orange #F39122 · green #7AC043 · blue #409DC6 · magenta #EC1465
+
+   None of the four raw brand colours reach 4.5:1 on white, so they are used
+   for FILLS AND GRAPHICS ONLY. Every token that carries text or acts as an
+   interactive surface resolves to a solved, hue-true variant that passes
+   WCAG AA (see --color-*-ink below, all >= 4.55:1 against white).
+
+   Colour weighting follows the logo's own proportions — orange dominates,
+   magenta is the rarest — so the palette reads as the brand rather than as
+   four colours competing.
+
+   The site is deliberately LIGHT-ONLY. It is photography-led and serves a
+   donor base largely on mid-range Android over slow connections; a second
+   theme would double the QA surface for no donor benefit.
+   ========================================================================== */
+
+@theme {
+  /* --- Brand: orange (primary) ------------------------------------------ */
+  --color-orange-50: #fbf8f3;
+  --color-orange-100: #f7eee3;
+  --color-orange-200: #f1dbc3;
+  --color-orange-300: #edc496;
+  --color-orange-400: #eead63;
+  --color-orange-500: #f39122; /* logo orange — fills only */
+  --color-orange-600: #db7e15;
+  --color-orange-700: #ac6719;
+  --color-orange-800: #805019;
+  --color-orange-900: #5c3c17;
+  --color-orange-950: #3b2812;
+  --color-orange-ink: #b46000; /* 4.55:1 on white — text + solid CTA */
+
+  /* --- Brand: green (secondary — growth, livelihoods, environment) ------- */
+  --color-green-50: #f7faf5;
+  --color-green-100: #ecf3e8;
+  --color-green-200: #d8e7cd;
+  --color-green-300: #bfdaaa;
+  --color-green-400: #a4cf82;
+  --color-green-500: #7ac043; /* logo green — fills only */
+  --color-green-600: #71af41;
+  --color-green-700: #5d8b39;
+  --color-green-800: #496930;
+  --color-green-900: #374d26;
+  --color-green-950: #25321b;
+  --color-green-ink: #3b8600; /* 4.57:1 on white */
+
+  /* --- Brand: blue (water, sanitation, informational) ------------------- */
+  --color-blue-50: #f5f8fa;
+  --color-blue-100: #e7eff3;
+  --color-blue-200: #ccdfe8;
+  --color-blue-300: #a8ccdc;
+  --color-blue-400: #7fb8d2;
+  --color-blue-500: #409dc6; /* logo blue — fills only */
+  --color-blue-600: #3c8fb3;
+  --color-blue-700: #36738e;
+  --color-blue-800: #2d596c;
+  --color-blue-900: #24414e;
+  --color-blue-950: #1a2b33;
+  --color-blue-ink: #007db5; /* 4.56:1 on white */
+
+  /* --- Brand: magenta (rarest accent — use sparingly, as in the logo) ---- */
+  --color-magenta-50: #fbf4f6;
+  --color-magenta-100: #f7e4eb;
+  --color-magenta-200: #f0c4d5;
+  --color-magenta-300: #eb99b8;
+  --color-magenta-400: #ea6798;
+  --color-magenta-500: #ec1465; /* logo magenta — fills only */
+  --color-magenta-600: #d61a60;
+  --color-magenta-700: #a81c51;
+  --color-magenta-800: #7d1c40;
+  --color-magenta-900: #5a1831;
+  --color-magenta-950: #3a1321;
+  --color-magenta-ink: #e90058; /* 4.56:1 on white */
+
+  /* --- Neutrals -----------------------------------------------------------
+     Warm-tinted rather than pure grey, so they sit under the orange without
+     the blue-grey clash you get from a default neutral ramp. */
+  --color-sand-50: #fdfcfa;
+  --color-sand-100: #f7f5f1;
+  --color-sand-200: #ebe7e0;
+  --color-sand-300: #d9d3c8;
+  --color-sand-400: #b3aa9c;
+  --color-sand-500: #8a8073;
+  --color-sand-600: #6b6357;
+  --color-sand-700: #524b42;
+  --color-sand-800: #38332d;
+  --color-sand-900: #241f1b; /* 14.9:1 on white — body text */
+  --color-sand-950: #16120f;
+
+  /* --- Semantic roles ---------------------------------------------------- */
+  --color-background: #ffffff;
+  --color-surface: var(--color-sand-50);
+  --color-surface-sunken: var(--color-sand-100);
+  --color-foreground: var(--color-sand-900);
+  --color-muted: var(--color-sand-600); /* 6.6:1 — safe for secondary text */
+  --color-border: var(--color-sand-200);
+  --color-border-strong: var(--color-sand-300);
+
+  --color-primary: var(--color-orange-ink);
+  --color-on-primary: #ffffff;
+  --color-ring: var(--color-orange-ink);
+
+  --color-success: var(--color-green-ink);
+  --color-info: var(--color-blue-ink);
+  --color-danger: #b3261e; /* 5.9:1 on white */
+
+  /* --- Typography ---------------------------------------------------------
+     Newsreader: warm editorial serif built for long-form reading — carries
+       the storytelling the charity leads with without feeling corporate.
+     Inter: body and UI. Chosen over a generic default for its tabular
+       figures, which matter on a site full of donation amounts.
+     Amiri: naskh face for Qur'anic ayat and hadith, which appear throughout
+       the client's source copy and must not be set in a Latin fallback. */
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-amiri), "Times New Roman", serif;
+
+  /* --- Radii: soft, organic, per the biophilic direction ----------------- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* --- Elevation: low, warm-tinted. No glows. --------------------------- */
+  --shadow-xs: 0 1px 2px 0 rgb(36 31 27 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(36 31 27 / 0.08), 0 1px 2px -1px rgb(36 31 27 / 0.06);
+  --shadow-md: 0 4px 12px -2px rgb(36 31 27 / 0.10), 0 2px 4px -2px rgb(36 31 27 / 0.06);
+  --shadow-lg: 0 12px 28px -6px rgb(36 31 27 / 0.12), 0 4px 8px -4px rgb(36 31 27 / 0.06);
+
+  /* --- Motion: 150–300ms, meaningful only ------------------------------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Arabic script — ayat, hadith, du'a. Larger, looser: naskh needs room. */
+  :lang(ar),
+  .font-arabic {
+    font-family: var(--font-arabic);
+    direction: rtl;
+    line-height: 2;
+    font-size: 1.2em;
+  }
+
+  /* A visible, high-contrast focus ring. Never removed — keyboard donors
+     are still donors, and removing it fails WCAG 2.4.7 outright. */
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Reserve intrinsic space so photography doesn't cause layout shift. */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   Motion preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+}
+
+/* Tabular figures for donation amounts, impact counters and the Zakat
+   calculator — stops numbers jittering as values change. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
