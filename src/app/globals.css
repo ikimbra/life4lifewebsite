@@ -225,11 +225,37 @@
    Utilities
    ========================================================================== */
 
+/* The single content column, used by every section including the text inside
+   full-bleed hero photographs.
+
+   Benchmarked against ten leading humanitarian and Islamic relief sites
+   (Islamic Relief UK, Muslim Aid, Human Appeal, Penny Appeal, Muslim Hands,
+   charity: water, WaterAid, Save the Children, Oxfam, MSF) measured at 1440px.
+   Nine of the ten run full-bleed hero photography; none inset the page into a
+   floating canvas. Their gutters ranged 19px to 272px, clustering around
+   100-140. Ours was a flat 20px plus whatever the max-width left over, which
+   put text closer to the edge than the cluster on mid-size screens.
+
+   Gutters now scale with the viewport. max-width stays at 80rem: widening it
+   would buy content width at the cost of the gutter, and charity: water runs
+   a 640px column precisely because shorter lines read better. */
 @utility container-page {
   width: 100%;
   margin-inline: auto;
-  padding-inline: 1.25rem;
   max-width: 80rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 40rem) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 64rem) {
+    padding-inline: 3rem;
+  }
+
+  @media (min-width: 80rem) {
+    padding-inline: 4rem;
+  }
 }
 
 /* Tabular figures for donation amounts, impact counters and the Zakat

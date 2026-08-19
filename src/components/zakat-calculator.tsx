@@ -11,10 +11,11 @@ const GOLD_NISAB_G = 87.48;
 const SILVER_NISAB_G = 612.36;
 const ZAKAT_RATE = 0.025;
 
-/* Indicative starting values only clearly surfaced in the UI as editable,
-   because a wrong metal price produces a wrong Zakat figure. */
-const DEFAULT_GOLD_PER_G = 85;
-const DEFAULT_SILVER_PER_G = 1.05;
+/* Indicative starting metal prices per currency, clearly surfaced in the UI
+   as editable, because a wrong metal price produces a wrong Zakat figure.
+   They are per currency rather than converted at runtime: a single USD figure
+   reused for shillings would put the nisab out by a factor of ~3,700 and
+   silently tell someone they owe nothing when they do. */
 
 type Field = { key: string; label: string; hint?: string };
 
@@ -33,17 +34,31 @@ const LIABILITIES: Field[] = [
 ];
 
 const CURRENCIES = [
-  { code: "USD", symbol: "$" },
-  { code: "GBP", symbol: "£" },
-  { code: "EUR", symbol: "€" },
+  { code: "USD", symbol: "$", decimals: 2, gold: 85, silver: 1.05 },
+  { code: "GBP", symbol: "£", decimals: 2, gold: 67, silver: 0.83 },
+  { code: "EUR", symbol: "€", decimals: 2, gold: 78, silver: 0.97 },
+  /* Shillings are quoted whole: nobody prices anything to the cent here, and
+     two decimal places on a seven-figure number is just noise. */
+  { code: "UGX", symbol: "USh", decimals: 0, gold: 314500, silver: 3885 },
 ] as const;
+
+type Currency = (typeof CURRENCIES)[number];
 
 export function ZakatCalculator() {
   const [values, setValues] = useState<Record<string, string>>({});
-  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>(CURRENCIES[0]);
+  const [currency, setCurrency] = useState<Currency>(CURRENCIES[0]);
   const [basis, setBasis] = useState<"silver" | "gold">("silver");
-  const [goldPerG, setGoldPerG] = useState(String(DEFAULT_GOLD_PER_G));
-  const [silverPerG, setSilverPerG] = useState(String(DEFAULT_SILVER_PER_G));
+  const [goldPerG, setGoldPerG] = useState(String(CURRENCIES[0].gold));
+  const [silverPerG, setSilverPerG] = useState(String(CURRENCIES[0].silver));
+
+  /* Switching currency re-bases the metal prices. Carrying a USD figure into
+     UGX would leave the nisab wrong by three orders of magnitude, so this
+     resets rather than converts, and the fields stay editable. */
+  function selectCurrency(next: Currency) {
+    setCurrency(next);
+    setGoldPerG(String(next.gold));
+    setSilverPerG(String(next.silver));
+  }
 
   const num = (v: string | undefined) => {
     const n = parseFloat((v ?? "").replace(/,/g, ""));
@@ -62,11 +77,16 @@ export function ZakatCalculator() {
     return { assets, liabilities, net, nisab, due: eligible ? net * ZAKAT_RATE : 0, eligible };
   }, [values, basis, goldPerG, silverPerG]);
 
-  const fmt = (n: number) =>
-    `${currency.symbol}${n.toLocaleString("en-GB", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}`;
+  const fmt = (n: number) => {
+    const amount = n.toLocaleString("en-GB", {
+      minimumFractionDigits: currency.decimals,
+      maximumFractionDigits: currency.decimals,
+    });
+    /* "USh" is a word, not a glyph, so it needs a space; "$" does not. */
+    return currency.symbol.length > 1
+      ? `${currency.symbol} ${amount}`
+      : `${currency.symbol}${amount}`;
+  };
 
   const field = (f: Field) => (
     <div key={f.key}>
@@ -85,7 +105,7 @@ export function ZakatCalculator() {
           id={`z-${f.key}`}
           type="text"
           inputMode="decimal"
-          placeholder="0.00"
+          placeholder={currency.decimals ? "0.00" : "0"}
           value={values[f.key] ?? ""}
           onChange={(e) =>
             setValues((v) => ({ ...v, [f.key]: e.target.value }))
@@ -111,7 +131,7 @@ export function ZakatCalculator() {
               <button
                 key={c.code}
                 type="button"
-                onClick={() => setCurrency(c)}
+                onClick={() => selectCurrency(c)}
                 aria-pressed={currency.code === c.code}
                 className={`tap cursor-pointer rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200 ${
                   currency.code === c.code
@@ -250,8 +270,8 @@ export function ZakatCalculator() {
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
           This calculator is a guide, not a religious ruling. If your situation
-          is complex business assets, pensions, agricultural produce or
-          livestock please consult a qualified scholar.
+          involves business assets, pensions, agricultural produce or livestock,
+          please consult a qualified scholar.
         </p>
       </aside>
     </div>
