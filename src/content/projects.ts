@@ -119,7 +119,7 @@ export const projects: Project[] = [
       "Fresh meals cooked and served to children, orphans, the elderly and anyone going hungry.",
     body: [
       "We cook on site, in the community, and serve while the food is hot. For many of the children who sit down to eat with us, it is the only full meal of their day.",
-      "It is the simplest thing we do and the most immediate. Two dollars puts a nourishing meal in front of someone who would otherwise go without.",
+      "We have served more than 3,000 hot meals so far. It is the simplest thing we do and the most immediate. Two dollars puts a nourishing meal in front of someone who would otherwise go without.",
     ],
     donations: [{ label: "Sponsor a hot meal", amount: 2 }],
     imageCategory: "hot-meals",

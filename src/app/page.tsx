@@ -117,9 +117,6 @@ export default function Home() {
                 <p className="mt-1.5 text-sm font-medium leading-snug text-sand-700">
                   {s.label}
                 </p>
-                {s.provisional && (
-                  <p className="mt-2 text-xs text-muted">Figure being verified</p>
-                )}
               </div>
             ))}
           </div>

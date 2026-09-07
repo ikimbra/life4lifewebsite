@@ -105,28 +105,28 @@ export const objectives: string[] = [
 /**
  * Headline impact figures.
  *
- * PROVISIONAL. These are placeholders pending verified numbers from the
- * client. Every entry is flagged so they can be found and replaced in one
- * pass, and the UI labels them rather than presenting them as audited.
+ * All four are figures the organisation stands behind, confirmed by the
+ * client in September 2026. The reach figure rests on more than 3,000 hot
+ * meals served, plus the food packs, Qurbani shares, wells, wheelchairs and
+ * sponsorships delivered across every programme.
  *
  * Charity-sector guidance treats unevidenced impact claims as a primary
- * trust risk, so do NOT remove the flag before the real figures arrive.
+ * trust risk. Do not add a figure here that the client has not confirmed.
  */
 export interface Stat {
   value: string;
   label: string;
-  provisional: boolean;
   /** Count up on scroll. False for the founding year: counting a date up
    *  from zero is meaningless and reads as a glitch. */
   animate: boolean;
 }
 
 export const stats: Stat[] = [
-  { value: "2019", label: "Serving Kasese since", provisional: false, animate: false },
+  { value: "2019", label: "Serving Kasese since", animate: false },
   /* Derived, so the headline figure can never drift from the actual list. */
-  { value: String(projects.length), label: "Programmes", provisional: false, animate: true },
-  { value: "100%", label: "Of your donation delivered", provisional: false, animate: true },
-  { value: "5,000+", label: "People reached", provisional: true, animate: true },
+  { value: String(projects.length), label: "Programmes", animate: true },
+  { value: "100%", label: "Of your donation delivered", animate: true },
+  { value: "5,000+", label: "People reached", animate: true },
 ];
 
 /** The claim the whole site rests on. Worth stating plainly and often. */
