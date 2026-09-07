@@ -301,6 +301,12 @@ export const projects: Project[] = [
     tagline: "From aid to independence",
     summary:
       "Goats, sewing machines, market stalls and poultry: assets that turn a supported family into a self-reliant one.",
+    /* Sourced figure from the organisation's 2025 profile, citing the Uganda
+       National Household Survey 2021/22. Attributed in the copy rather than
+       stated bare, since an unattributed statistic is worth nothing to a
+       donor who checks. */
+    challenge:
+      "21.9% of Ugandans live below the absolute poverty line, according to the Uganda National Household Survey for 2021/22, taken after the pandemic. For the families we work with, the gap between relief and independence is a single productive asset.",
     body: [
       "Delivering relief matters, but changing a family's trajectory matters more. A goat breeds. A sewing machine earns. A market stall trades. Each one moves a household off aid and onto its own income.",
       "We select families in genuine destitution, provide the asset and the training to use it, and stay in contact as the income builds.",

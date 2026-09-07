@@ -32,10 +32,15 @@ export const site = {
     email: "info@life4liferelief.org.ug",
   },
 
+  /* Tracking parameters stripped from the shared links: they identify the
+     person who sent them and would follow every visitor who clicks. The
+     Facebook entry stays a /share/ redirect because that is the only form
+     the client has supplied. */
   social: {
+    facebook: "https://www.facebook.com/share/19LfBdToLY/",
+    instagram: "https://www.instagram.com/life4_liferelief",
+    tiktok: "https://www.tiktok.com/@life4liferelief",
     youtube: "https://www.youtube.com/@Life4liferelief",
-    facebook: "https://www.facebook.com/KhamedRelief/",
-    instagram: "https://www.instagram.com/life4_liferelief/",
   },
 
   bank: {
@@ -58,6 +63,44 @@ export const site = {
     { name: "Baluku Halid", role: "Co-Founder" },
   ],
 } as const;
+
+/**
+ * The people who run the organisation.
+ *
+ * Names and roles are taken from the client's management photographs. Two of
+ * the seven are volunteers rather than staff, so they are grouped separately
+ * rather than presented as leadership.
+ */
+export interface TeamMember {
+  slug: string;
+  name: string;
+  role: string;
+  group: "leadership" | "volunteers";
+}
+
+export const team: TeamMember[] = [
+  { slug: "halid-baluku", name: "Halid Baluku", role: "Chief Executive Officer", group: "leadership" },
+  { slug: "yasin-ahmed", name: "Yasin Ahmed", role: "Director & Head of Operations", group: "leadership" },
+  { slug: "dada-janet", name: "Dada Janet", role: "Patron & Head of Fundraising", group: "leadership" },
+  { slug: "isabirye-hassan", name: "Isabirye Hassan", role: "Head of Finance", group: "leadership" },
+  { slug: "kabugho-gevinah", name: "Kabugho Gevinah", role: "Projects Manager", group: "leadership" },
+  { slug: "isingoma-hassan", name: "Isingoma Hassan", role: "Volunteer", group: "volunteers" },
+  { slug: "ismail-shabani", name: "Ismail Shabani", role: "Volunteer", group: "volunteers" },
+];
+
+/**
+ * Core objectives, from the organisation's 2025 profile document.
+ * Rewritten for grammar; the substance of each is unchanged.
+ */
+export const objectives: string[] = [
+  "Promote, teach and spread the light and beauty of Islam, and the miraculous nature of the Qur'an.",
+  "Improve access to health, education, livelihoods and living standards for young people, women, children and people with disabilities.",
+  "Lead a front line fight against ignorance and poverty through proven programmes that reach the needy and vulnerable.",
+  "Connect and extend a helping hand to groups and individual projects, contributing to the communities Uganda wants to build.",
+  "Research the social, economic and health pressures on the people we serve, and offer solutions for better living.",
+  "Improve food security, nutrition and modern commercial farming in the communities we work in.",
+  "Extend guidance and counselling to individuals, young people, women and families.",
+];
 
 /**
  * Headline impact figures.

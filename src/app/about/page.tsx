@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/content/site";
+import Image from "next/image";
+import { objectives, site, team } from "@/content/site";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
@@ -134,6 +135,95 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Objectives, from the 2025 organisation profile */}
+      <section className="border-y border-border bg-surface py-16 lg:py-20">
+        <div className="container-page">
+          <h2 className="font-display text-3xl font-semibold text-foreground">
+            Our core objectives
+          </h2>
+          <p className="mt-3 max-w-2xl text-lg text-sand-700">
+            What we set out to achieve, and hold ourselves to.
+          </p>
+          <ol data-reveal-group className="mt-9 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {objectives.map((o, i) => (
+              <li key={o} className="flex gap-4">
+                <span
+                  aria-hidden="true"
+                  className="tabular mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-semibold text-orange-ink"
+                >
+                  {i + 1}
+                </span>
+                <p className="leading-relaxed text-sand-700">{o}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section id="team" className="scroll-mt-24 container-page py-16 lg:py-20">
+        <h2 className="font-display text-3xl font-semibold text-foreground">
+          The people behind the work
+        </h2>
+        <p className="mt-3 max-w-2xl text-lg text-sand-700">
+          A small team in Kasese, most of whom you will find in the field on
+          distribution days rather than behind a desk.
+        </p>
+
+        <ul data-reveal-group className="mt-9 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+          {team
+            .filter((m) => m.group === "leadership")
+            .map((m) => (
+              <li key={m.slug}>
+                <div className="relative aspect-4/5 overflow-hidden rounded-xl bg-surface-sunken">
+                  <Image
+                    src={`/images/team/${m.slug}.jpg`}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-3 font-display font-semibold text-foreground">
+                  {m.name}
+                </h3>
+                <p className="text-sm leading-snug text-muted">{m.role}</p>
+              </li>
+            ))}
+        </ul>
+
+        <h3 className="mt-14 font-display text-xl font-semibold text-foreground">
+          Our volunteers
+        </h3>
+        <p className="mt-2 max-w-2xl text-sand-700">
+          Volunteers cook, carry, build and deliver alongside the team. The work
+          does not happen without them.
+        </p>
+        <ul data-reveal-group className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+          {team
+            .filter((m) => m.group === "volunteers")
+            .map((m) => (
+              <li key={m.slug}>
+                <div className="relative aspect-4/5 overflow-hidden rounded-xl bg-surface-sunken">
+                  <Image
+                    src={`/images/team/${m.slug}.jpg`}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="mt-3 font-display font-semibold text-foreground">
+                  {m.name}
+                </h3>
+                <p className="text-sm leading-snug text-muted">{m.role}</p>
+              </li>
+            ))}
+        </ul>
       </section>
 
       {/* Founder's letter */}
